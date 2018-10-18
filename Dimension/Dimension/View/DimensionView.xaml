@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dimension.View.DimensionView"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="True"
+             Title="Automation Test">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0">
+                <Label Text="Enter Barcode" TextColor="Gray" FontSize="Medium"/>
+                <Entry Text="{Binding Barcode}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Enter Dimms Width x Height x Depth" TextColor="Gray" VerticalOptions="EndAndExpand" VerticalTextAlignment="Center" FontSize="Medium"/>
+                <Entry Grid.Row="1" Grid.Column="0" Text="{Binding Width}" WidthRequest="100" Keyboard="Keyboard.Numeric"/>
+                <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Height}" WidthRequest="100" Keyboard="Keyboard.Numeric"/>
+                <Entry Grid.Row="1" Grid.Column="2" Text="{Binding Depth}" WidthRequest="100" Keyboard="Keyboard.Numeric"/>
+            </Grid>
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Grid.Row="2">
+                <Button Text="Reset" HorizontalOptions="StartAndExpand" Command="{Binding ResetCommand}"/>
+                <Button Text="Save" HorizontalOptions="EndAndExpand" Command="{Binding SaveCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
